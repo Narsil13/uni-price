@@ -21,7 +21,7 @@ yarn add @narsil13/uni-price
 // should be configured first as dependency
 const Web3 = require("web3");
 const web3 = new Web3("urltoETHNode");
-const Price = require("@narsil13/uni-price")(web3);
+const Price = new (require("@narsil13/uni-price"))(web3);
 
 // just specify a tokenAddress and returns price in ETH
 let tokenPrice = await Price.get("0x04b5e13000c6e9a3255dc057091f3e3eeee7b0f0");
@@ -49,4 +49,12 @@ console.log(ethUSDPrice);
 // calculates the price of token in dollar
 let tokenPriceUSD = ethUSDPrice * tokenPrice;
 console.log(tokenPriceUSD)
+
+// price watcher
+const PriceWatcher = new (require("@narisl13/uni-price/pricewatcher"))(web3);
+
+PriceWatcher.register((token, price, volume) => {
+    console.log(token, price, volume);
+})
+
 ```

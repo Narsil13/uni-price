@@ -6,7 +6,8 @@
     "author": "Narsil13",
     "license": "MIT",
     "dependencies": {
-        "bignumber.js": "9.0.0"
+        "bignumber.js": "9.0.0",
+        "abi-decoder": "2.3.0"
     },
     "repository": "git://github.com/Narsil13/uni-price.git"
 }
