@@ -1,5 +1,5 @@
 {
-    "name": "uni-price",
+    "name": "@narsil13/uni-price",
     "version": "0.0.1",
     "description": "fetches uniswap prices through web3",
     "main": "index.js",
@@ -7,5 +7,6 @@
     "license": "MIT",
     "dependencies": {
         "bignumber.js": "9.0.0"
-    }
+    },
+    "repository": "git://github.com/Narsil13/uni-price.git"
 }
