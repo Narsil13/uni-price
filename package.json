@@ -1,6 +1,6 @@
 {
     "name": "@narsil13/uni-price",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "fetches uniswap prices through web3",
     "main": "index.js",
     "author": "Narsil13",
@@ -9,5 +9,6 @@
         "bignumber.js": "9.0.0",
         "abi-decoder": "2.3.0"
     },
-    "repository": "git://github.com/Narsil13/uni-price.git"
+    "repository": "git://github.com/Narsil13/uni-price.git",
+    "keywords": ["uniswap", "uniprice", "uni", "price", "web3", "eth", "blockchain"]
 }
