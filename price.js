@@ -54,27 +54,27 @@ class Price {
         const pairAddress = await this.getPairAddress(tokenAddress);
         const pairContract = new this.web3.eth.Contract(unipairABI, pairAddress);
         const reverse = await Web3Utils.getReverse(pairContract);
-        return Web3Utils.getPrice(tokenAddress, decimals, reverse, pairContract);
-    }
+        return Web3Utils.getPrice(tokenAddress, decimals, reverse, pairContract, this.block));
+}
 
-    async getAllInfos(tokenAddress) {
-        const token = await Web3Utils.fetchTokenInfos(tokenAddress, this.web3);
-        const pairAddress = await this.getPairAddress(tokenAddress);
-        const pairContract = new this.web3.eth.Contract(unipairABI, pairAddress);
-        const reverse = await Web3Utils.getReverse(pairContract);
-        token.price = await Web3Utils.getPrice(tokenAddress, token.decimals, reverse, pairContract);
-        return token;
-    }
+async getAllInfos(tokenAddress) {
+    const token = await Web3Utils.fetchTokenInfos(tokenAddress, this.web3);
+    const pairAddress = await this.getPairAddress(tokenAddress);
+    const pairContract = new this.web3.eth.Contract(unipairABI, pairAddress);
+    const reverse = await Web3Utils.getReverse(pairContract);
+    token.price = await Web3Utils.getPrice(tokenAddress, token.decimals, reverse, pairContract, this.block);
+    return token;
+}
 
-    async getETHUSD() {
-        let sum = 0;
-        for (const USDPair of USDPairs) {
-            const pairContract = new this.web3.eth.Contract(unipairABI, USDPair.pairAddress);
+async getETHUSD() {
+    let sum = 0;
+    for (const USDPair of USDPairs) {
+        const pairContract = new this.web3.eth.Contract(unipairABI, USDPair.pairAddress);
 
-            sum += 1 / (await Web3Utils.getPrice(null, USDPair.decimals, USDPair.reverse, pairContract));
-        }
-        return sum / USDPairs.length;
+        sum += 1 / (await Web3Utils.getPrice(null, USDPair.decimals, USDPair.reverse, pairContract, this.block));
     }
+    return sum / USDPairs.length;
+}
 }
 
 module.exports = function (web3) {
