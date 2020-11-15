@@ -1,0 +1,11 @@
+{
+    "name": "uni-price",
+    "version": "0.0.1",
+    "description": "fetches uniswap prices through web3",
+    "main": "index.js",
+    "author": "Narsil13",
+    "license": "MIT",
+    "dependencies": {
+        "bignumber.js": "9.0.0"
+    }
+}
